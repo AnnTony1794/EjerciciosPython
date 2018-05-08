@@ -86,8 +86,8 @@ def display_board(hidden_word, tries):
 
 def game(current_letter, word, tries, hidden_word):
     if current_letter not in word:
-        if tries.value > 6:
-            print('perdiste')
+        if tries.value > 5:
+            print('\nPerdiste')
             return True
         tries.value += 1
     else:
@@ -106,10 +106,9 @@ def run():
     tries = c_int(0)
     while True:
         os.system('cls')
-        print(word)
         display_board(hidden_word, tries)
         current_letter = str(input('Elige una letra:\t'))
-        if current_letter == "":
+        if len(current_letter) > 1 or len(current_letter) == 0:
             continue
 
         # Intento de solución
